@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd"> 
+	
+	<!-- Add a logger config to see logging messages.		
+		- For more detailed logs, set values to "FINEST"
+		- For info on logging levels, see: http://www.vogella.com/tutorials/Logging/article.html-->
+	
+
+    <bean id="myLoggerConfig" class="com.eve.springdemo.MyLoggerConfig" init-method="initLogger">
+    	<property name="rootLoggerLevel" value="FINE" />
+    	<property name="printedLoggerLevel" value="FINE"/>
+    </bean>
+    
+	<bean id="myCoach"
+		class="com.eve.springdemo.TrackCoach"
+		scope="singleton"
+		init-method="myInitMethod"
+		destroy-method="myDestroyMethod">
+		<constructor-arg ref = "myFortuneService"/>	
+	</bean>
+		
+	<bean id="myFortuneService"
+		class="com.eve.springdemo.HappyFortuneService">
+	</bean>
+	
+</beans>
