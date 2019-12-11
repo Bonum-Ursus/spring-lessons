@@ -12,20 +12,7 @@
 		- For more detailed logs, set values to "FINEST"
 		- For info on logging levels, see: http://www.vogella.com/tutorials/Logging/article.html-->
 	
-
-    <bean id="myLoggerConfig" class="com.eve.springdemo.part1.MyLoggerConfig" init-method="initLogger">
-    	<property name="rootLoggerLevel" value="FINE" />
-    	<property name="printedLoggerLevel" value="FINE"/>
-    </bean>
-    
-	<bean id="myCoach"
-		class="com.eve.springdemo.part1.TrackCoach"
-		scope="prototype">
-		<constructor-arg ref = "myFortuneService"/>
-	</bean>
-		
-	<bean id="myFortuneService"
-		class="com.eve.springdemo.part1.HappyFortuneService">
-	</bean>
+	<!--	add entry to enable component scanning-->
+	<context:component-scan base-package="com.eve.springdemo.part2"/>
 	
 </beans>

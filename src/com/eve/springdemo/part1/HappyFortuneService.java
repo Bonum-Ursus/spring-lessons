@@ -1,4 +1,4 @@
-package com.eve.springdemo;
+package com.eve.springdemo.part1;
 
 public class HappyFortuneService implements FortuneService{
 	public String getFortune() {

@@ -19,25 +19,25 @@
 	
 	
 	
-    <bean id="myLoggerConfig" class="com.eve.springdemo.MyLoggerConfig" init-method="initLogger">
+    <bean id="myLoggerConfig" class="com.eve.springdemo.part1.MyLoggerConfig" init-method="initLogger">
     	<property name="rootLoggerLevel" value="FINE" />
     	<property name="printedLoggerLevel" value="FINE"/>
     </bean>
     
 	<bean id="myCoach"
-		class="com.eve.springdemo.TrackCoach">
+		class="com.eve.springdemo.part1.TrackCoach">
 		<constructor-arg ref = "myFortuneService"/>	
 	</bean>
 	
 	<bean id="myCricketCoach"
-		class="com.eve.springdemo.CricketCoach">
+		class="com.eve.springdemo.part1.CricketCoach">
 		<property name="fortuneService" ref="myFortuneService"/>
 		<property name="emailAddress" value="${prop.emailAddress}"/>
 		<property name="team" value="${prop.team}"/>
 	</bean>
 		
 	<bean id="myFortuneService"
-		class="com.eve.springdemo.HappyFortuneService">
+		class="com.eve.springdemo.part1.HappyFortuneService">
 	</bean>
 	
 </beans>

@@ -1,4 +1,4 @@
-package com.eve.springdemo;
+package com.eve.springdemo.part1;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
