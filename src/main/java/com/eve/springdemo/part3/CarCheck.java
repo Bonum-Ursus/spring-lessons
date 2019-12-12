@@ -11,9 +11,13 @@ public class CarCheck {
 
         car1.getCarInfo();
         car1.getEngineInfo();
-        System.out.println("*********************");
+        System.out.println("************************");
         car2.getCarInfo();
         car2.getEngineInfo();
+        System.out.println("************************");
+        FordFocus fordFocus = context.getBean("fordFocus", FordFocus.class);
+        System.out.println("Horse power = " + fordFocus.getHorsePower());
+        System.out.println("Car rank = " + fordFocus.getCarRank());
         context.close();
     }
 }
