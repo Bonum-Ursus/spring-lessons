@@ -2,14 +2,32 @@ package com.eve.springdemo.part2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 //В скобках анотации можно не указывать bean id.
 //Автомтически bean id будет представлен как имя класса (первая буква строчная).
 @Component("tennisCoach")
 public class TennisCoach implements Coach{
 
-//    Dependency injection by field
+/*
+//  Dependency injection by properties file
+    @Value("${prop.name}")
+    private String name;
+    @Value("${prop.emailAddress}")
+    private String email;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }*/
+
+    //    Dependency injection by field
     @Autowired
     @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
@@ -34,7 +52,7 @@ public class TennisCoach implements Coach{
     }
 
     @Override
-    public String getDailyFortune() {
+    public String getDailyFortune() throws IOException {
         return fortuneService.getFortune();
     }
 

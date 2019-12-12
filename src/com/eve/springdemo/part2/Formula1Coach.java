@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class Formula1Coach implements Coach{
     @Autowired
@@ -21,7 +23,7 @@ public class Formula1Coach implements Coach{
     }
 
     @Override
-    public String getDailyFortune() {
+    public String getDailyFortune() throws IOException {
         return fortuneService.getFortune();
     }
 }
