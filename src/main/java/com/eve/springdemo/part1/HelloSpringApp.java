@@ -7,7 +7,7 @@ public class HelloSpringApp {
 	public static void main(String[] args) {
 
 		ClassPathXmlApplicationContext context = 
-				new ClassPathXmlApplicationContext("applicationContext.xml");
+				new ClassPathXmlApplicationContext("src/applicationContext.xml");
 		
 		Coach theCoach1 = context.getBean("myCoach", Coach.class);
 		

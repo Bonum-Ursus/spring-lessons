@@ -1,16 +1,22 @@
 package com.eve.springdemo.part2;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.io.IOException;
 
 //В скобках анотации можно не указывать bean id.
 //Автомтически bean id будет представлен как имя класса (первая буква строчная).
 @Component("tennisCoach")
-public class TennisCoach implements Coach{
+@Scope("singleton")
+public class TennisCoach implements Coach {
 
 /*
 //  Dependency injection by properties file
@@ -56,8 +62,14 @@ public class TennisCoach implements Coach{
         return fortuneService.getFortune();
     }
 
-    public void getTennisCoachOrder(){
-        System.out.println("Keep calm and play the game");
+    @PostConstruct
+    public void getInitMethod(){
+        System.out.println("Initialize method");
+    }
+
+    @PreDestroy
+    public void getDestroyMethod(){
+        System.out.println("Destroy method");
     }
 
 }

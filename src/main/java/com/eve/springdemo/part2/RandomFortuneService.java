@@ -27,7 +27,7 @@ public class RandomFortuneService implements FortuneService{
 
     @Override
     public String getFortune() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("c:\\Users\\User\\Eclipse-workspace-SE\\spring-1\\src\\lat.text"));
+        BufferedReader br = new BufferedReader(new FileReader("c:\\Users\\User\\Eclipse-workspace-SE\\spring-1\\src\\main\\resources\\lat.text"));
         List<String> fortuneList = new ArrayList<>();
         while (br.ready()){
             fortuneList.add(br.readLine());
